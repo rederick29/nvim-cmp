@@ -89,6 +89,9 @@ end
 ---@param text string
 ---@return string
 str.trim = function(text)
+  if type(text) ~= "string" then
+    return ""
+  end
   local s = 1
   for i = 1, #text do
     if not char.is_white(string.byte(text, i)) then

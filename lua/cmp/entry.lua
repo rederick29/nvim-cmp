@@ -342,12 +342,12 @@ entry._get_vim_item = function(self, suggest_offset)
 
   -- labelDetails.
   local menu = nil
-  if completion_item.labelDetails then
+  if completion_item.labelDetails and type(completion_item.labelDetails) ~= "userdata" then
     menu = ''
-    if completion_item.labelDetails.detail then
+    if completion_item.labelDetails.detail and type(completion_item.labelDetails.detail) ~= "userdata" then
       menu = menu .. completion_item.labelDetails.detail
     end
-    if completion_item.labelDetails.description then
+    if completion_item.labelDetails.description and type(completion_item.labelDetails.description) ~= "userdata" then
       menu = menu .. completion_item.labelDetails.description
     end
   end
